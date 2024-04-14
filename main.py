@@ -34,8 +34,8 @@ def load_data_from_file():
     """Загрузка данных из файла .json"""
     with open("products.json", "r", encoding='utf-8') as file:
         data = json.load(file)
-        product_list = []
-        for product in data:
-            product_list.append(Category(product['name'], product['description'], product["products"]))
+    product_list = []
+    for product in data:
+        product_list.append(product)
     return product_list
 
