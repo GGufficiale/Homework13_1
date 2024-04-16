@@ -6,7 +6,9 @@ from main import Product
 @pytest.fixture
 def category_object():
     """Тест получает на вход класс Category для удобства дальнейшей работы"""
-    return Category('Шоколад', 'Вкусный', ["Риттер Спорт", "Щедрая душа"])
+    return Category('одежда', 'для спорта',
+                    [Product('топ', 'для занятия спортом', 599, 10),
+                     Product('топ2', 'для занятия спортом2', 599, 10)])
 
 
 def test_init_category(category_object):
@@ -14,9 +16,12 @@ def test_init_category(category_object):
     Тест проверяет корректность инициализации объектов класса Category.
     Также тест считает количество продуктов и категорий.
     """
-    assert category_object.name == 'Шоколад'
-    assert category_object.description == 'Вкусный'
-    assert category_object.products == ["Риттер Спорт", "Щедрая душа"]
+    assert category_object.name == 'одежда'
+    assert category_object.description == 'для спорта'
+    assert category_object.products == [Product('топ', 'для занятия спортом', 599, 10),
+                                        Product('топ2', 'для занятия спортом2', 599, 10)]
+    assert category_object.all_categories == 1
+    assert category_object.all_unique_goods == 2
 
 
 @pytest.fixture
