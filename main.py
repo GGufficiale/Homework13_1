@@ -24,6 +24,11 @@ class Category:
     def products(self, products):
         self.__products = products
 
+    @property
+    def get_products(self):
+        """Геттер, который выводит список товаров в нужном формате"""
+        return f"Продукт, {self.__products['price']} руб. Остаток: {self.__products['quantity']} шт."
+
 
 class Product:
     name: str
