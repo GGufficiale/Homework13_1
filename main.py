@@ -45,6 +45,10 @@ class Product:
     def __repr__(self):
         return f'Product(name={self.name}, description={self.description}, price={self.price}, quantity={self.quantity})'
 
+    @classmethod
+    def make_product(cls, name, description, price, quantity):
+        return cls(name, description, price, quantity)
+
 
 def load_data_from_file():
     """Загрузка данных из файла .json"""
