@@ -57,7 +57,18 @@ class Product:
     def price(self, price):
         if price >= 0:
             print('введена некорректная цена')
+        elif self.price > price:
+            input("Если вам ок, нажмите 'y', если нет - 'n'")
+            if input == 'y':
+                self.price = price
+            else:
+                print('Цена осталась прежней')
 
+    @price.deleter
+    def price(self):
+        """Делитер для цены товара"""
+        print('Цена осталась прежней')
+        self.price = None
 
 
 def load_data_from_file():
@@ -80,4 +91,3 @@ def make_products_list():
         products_list = []
         for p in product['products']:
             products_list.append(p)
-
