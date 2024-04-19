@@ -11,10 +11,18 @@ class Category:
     def __init__(self, name, description, products):
         self.name = name
         self.description = description
-        self.products = products
+        self.__products = products
 
         Category.all_unique_goods += len(set([product.name for product in products]))
         Category.all_categories += 1
+
+    @property
+    def products(self):
+        return f'{self.__products}'
+
+    @products.setter
+    def products(self, products):
+        self.__products = products
 
 
 class Product:
@@ -29,8 +37,8 @@ class Product:
         self.price = float(price)
         self.quantity = quantity
 
-    #def __repr__(self):
-    #    return f'Product(name={self.name}, description={self.description}, price={self.price}, quantity={self.quantity})'
+    def __repr__(self):
+        return f'Product(name={self.name}, description={self.description}, price={self.price}, quantity={self.quantity})'
 
 
 def load_data_from_file():
@@ -42,5 +50,15 @@ def load_data_from_file():
         for p in product['products']:
             products_list.append(Product(p['name'], p['description'], p['price'], p['quantity']))
         Category(product['name'], product['description'], products_list)
+        return products_list
 
+
+def make_products_list():
+    """Загрузка данных из файла .json"""
+    with open("products.json", "r", encoding='utf-8') as file:
+        data = json.load(file)
+    for product in data:
+        products_list = []
+        for p in product['products']:
+            products_list.append(p)
 
