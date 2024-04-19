@@ -49,6 +49,16 @@ class Product:
     def make_product(cls, name, description, price, quantity):
         return cls(name, description, price, quantity)
 
+    @property
+    def price(self):
+        return self.price
+
+    @price.setter
+    def price(self, price):
+        if price >= 0:
+            print('введена некорректная цена')
+
+
 
 def load_data_from_file():
     """Загрузка данных из файла .json"""

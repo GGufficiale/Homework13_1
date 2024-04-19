@@ -44,3 +44,7 @@ def test_init_product(product_object):
     assert product_object.description == "для занятия спортом"
     assert product_object.price == 599
     assert product_object.quantity == 10
+
+
+def test_if_product_exists():
+    pass
