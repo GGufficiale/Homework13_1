@@ -30,6 +30,7 @@ class Category:
         product_list = []
         for p in product:
             product_list.append(f"Продукт, {self.__products['price']} руб. Остаток: {self.__products['quantity']} шт.")
+        return product_list
 
     @staticmethod
     def add_product_to_category(self, product):
