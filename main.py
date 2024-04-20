@@ -29,6 +29,15 @@ class Category:
         """Геттер, который выводит список товаров в нужном формате"""
         return f"Продукт, {self.__products['price']} руб. Остаток: {self.__products['quantity']} шт."
 
+    @staticmethod
+    def add_product_to_category(self, product):
+        """Метод для приема на вход объекта товара и добавления его в список"""
+        product_list = []
+        for p in product['products']:
+            product_list.append(Product(p['name'], p['description'], p['price'], p['quantity']))
+        Category(product['name'], product['description'], product_list)
+        return product_list
+
 
 class Product:
     name: str
