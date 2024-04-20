@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/../Homework13_1_and_13_2/.idea/Homework13_1+13_2.iml" filepath="$PROJECT_DIR$/../Homework13_1_and_13_2/.idea/Homework13_1+13_2.iml" />
-=======
-      <module fileurl="file://$PROJECT_DIR$/.idea/Homework13_1.iml" filepath="$PROJECT_DIR$/.idea/Homework13_1.iml" />
->>>>>>> a0b16d3 (Задание 1 поправлено: создан метод, для добавления товара в Category и добавления его в список.)
     </modules>
   </component>
 </project>
