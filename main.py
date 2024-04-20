@@ -25,9 +25,11 @@ class Category:
         self.__products = products
 
     @property
-    def get_products(self):
+    def get_products(self, product):
         """Геттер, который выводит список товаров в нужном формате"""
-        return f"Продукт, {self.__products['price']} руб. Остаток: {self.__products['quantity']} шт."
+        product_list = []
+        for p in product:
+            product_list.append(f"Продукт, {self.__products['price']} руб. Остаток: {self.__products['quantity']} шт.")
 
     @staticmethod
     def add_product_to_category(self, product):
