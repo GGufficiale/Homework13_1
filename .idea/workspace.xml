@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="60550fa2-2fbd-487d-b2a3-32af5cfbadb4" name="Changes" comment="Реализован метод добавления товара в Category">
+    <list default="true" id="60550fa2-2fbd-487d-b2a3-32af5cfbadb4" name="Changes" comment="Исправлен геттер, который выводит список товаров в нужном формате">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +176,23 @@
       <option name="project" value="LOCAL" />
       <updated>1713635439859</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Реализован метод добавления товара в Category">
+      <option name="closed" value="true" />
+      <created>1713635551479</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1713635551479</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Исправлен геттер, который выводит список товаров в нужном формате">
+      <option name="closed" value="true" />
+      <created>1713635784404</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1713635784404</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -211,6 +228,7 @@
     <MESSAGE value="Задание 1 поправлено: создан метод, для добавления товара в Category и добавления его в список." />
     <MESSAGE value="После удаления идеи из гита происходит какой-то бред" />
     <MESSAGE value="Реализован метод добавления товара в Category" />
-    <option name="LAST_COMMIT_MESSAGE" value="Реализован метод добавления товара в Category" />
+    <MESSAGE value="Исправлен геттер, который выводит список товаров в нужном формате" />
+    <option name="LAST_COMMIT_MESSAGE" value="Исправлен геттер, который выводит список товаров в нужном формате" />
   </component>
 </project>

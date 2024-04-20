@@ -16,6 +16,13 @@ class Category:
         Category.all_unique_goods += len(set([product.name for product in products]))
         Category.all_categories += 1
 
+    def __str__(self):
+        return f'Название категории: {self.name}, к-во продуктов: {self.all_unique_goods} шт.'
+
+    def __len__(self):
+        """Метод для вывода к-ва продуктов на складе"""
+        return len(self.__products)
+
     @property
     def products(self):
         return f'{self.__products}'
@@ -56,6 +63,16 @@ class Product:
 
     def __repr__(self):
         return f'Product(name={self.name}, description={self.description}, price={self.price}, quantity={self.quantity})'
+
+    def __str__(self):
+        return f'Название продукта: {self.name}, {self.price} руб. Остаток: {self.quantity} шт.)'
+
+    def __len__(self):
+        """Метод для вывода к-ва товаров на складе"""
+        return self.quantity
+
+    def __add__(self, other):
+        return (self.price * self.quantity) + (other.price * other.quantity)
 
     @classmethod
     def make_product(cls, name, description, price, quantity):
