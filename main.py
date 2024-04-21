@@ -28,8 +28,8 @@ class Category:
         return f'{self.__products}'
 
     @products.setter
-    def products(self, products):
-        self.__products = products
+    def products(self, product):
+        self.__products += product
 
     @property
     def get_products(self, product):
@@ -98,6 +98,10 @@ class Product:
         """Делитер для цены товара"""
         print('Цена осталась прежней')
         self.price = None
+
+    @classmethod
+    def make_product(cls, **kwagrs):
+        return cls(**kwargs)
 
 
 def load_data_from_file():
