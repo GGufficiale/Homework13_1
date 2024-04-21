@@ -17,11 +17,14 @@ class Category:
         Category.all_categories += 1
 
     def __str__(self):
-        return f'Название категории: {self.name}, к-во продуктов: {self.all_unique_goods} шт.'
+        return f'Название категории: {self.name}, к-во продуктов: {len(self)} шт.'
 
     def __len__(self):
         """Метод для вывода к-ва продуктов на складе"""
-        return len(self.__products)
+        return sum([i.count for i in self.__products])
+
+    def __iter__(self):
+        return iter(self.__products)
 
     @property
     def products(self):
@@ -65,7 +68,7 @@ class Product:
         return f'Product(name={self.name}, description={self.description}, price={self.price}, quantity={self.quantity})'
 
     def __str__(self):
-        return f'Название продукта: {self.name}, {self.price} руб. Остаток: {self.quantity} шт.)'
+        return f'Название продукта: {self.name}, {self.price} руб. Остаток: {len(self)} шт.'
 
     def __len__(self) -> int:
         """Метод для вывода к-ва товаров на складе"""
