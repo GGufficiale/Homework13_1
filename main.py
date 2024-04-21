@@ -67,7 +67,7 @@ class Product:
     def __str__(self):
         return f'Название продукта: {self.name}, {self.price} руб. Остаток: {self.quantity} шт.)'
 
-    def __len__(self):
+    def __len__(self) -> int:
         """Метод для вывода к-ва товаров на складе"""
         return self.quantity
 
