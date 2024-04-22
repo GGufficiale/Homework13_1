@@ -4,7 +4,7 @@ import json
 class Category:
     name: str
     description: str
-    products: list
+    products = []
     all_categories = 0
     all_unique_goods = 0
 
@@ -19,6 +19,9 @@ class Category:
     def __str__(self):
         return f'Название категории: {self.name}, к-во продуктов: {len(self)} шт.'
 
+    def __repr__(self):
+        return f'Category(name={self.name}, description={self.description}, products={self.products})'
+
     def __len__(self):
         """Метод для вывода к-ва продуктов на складе"""
         return sum([i.count for i in self.__products])
@@ -32,8 +35,8 @@ class Category:
 
     @products.setter
     def products(self, product):
-        self.__products += product
-
+        self.__products = self.__products.append(product)
+        
     @property
     def get_products(self, product):
         """Геттер, который выводит список товаров в нужном формате"""
