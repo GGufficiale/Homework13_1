@@ -35,8 +35,8 @@ class Category:
 
     @products.setter
     def products(self, product):
-        self.__products = self.__products.append(product)
-        
+        self.__products.append(product)
+
     @property
     def get_products(self, product):
         """Геттер, который выводит список товаров в нужном формате"""
@@ -81,8 +81,8 @@ class Product:
         return (self.price * self.quantity) + (other.price * other.quantity)
 
     @classmethod
-    def make_product(cls, name, description, price, quantity):
-        return cls(name, description, price, quantity)
+    def make_product(cls, **kwagrs):
+        return cls(**kwargs)
 
     @property
     def price(self):
@@ -104,10 +104,6 @@ class Product:
         """Делитер для цены товара"""
         print('Цена осталась прежней')
         self.price = None
-
-    @classmethod
-    def make_product(cls, **kwagrs):
-        return cls(**kwargs)
 
 
 def load_data_from_file():
