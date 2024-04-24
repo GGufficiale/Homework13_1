@@ -30,12 +30,15 @@ class Category:
         return iter(self.__products)
 
     @property
-    def products(self):
+    def get_products_list(self):
         return f'{self.__products}'
 
     @products.setter
     def products(self, product):
-        self.__products.append(product)
+        if isinstance(product, Product):
+            self.__products.append(product)
+        else:
+            raise TypeError
 
     @property
     def get_products(self, product):
@@ -78,7 +81,10 @@ class Product:
         return self.quantity
 
     def __add__(self, other):
-        return (self.price * self.quantity) + (other.price * other.quantity)
+        if type(self) is type(other):
+            return (self.price * self.quantity) + (other.price * other.quantity)
+        else:
+            raise TypeError('Нельзя складывать товары разных типов')
 
     @classmethod
     def make_product(cls, **kwagrs):
@@ -126,3 +132,34 @@ def make_products_list():
         products_list = []
         for p in product['products']:
             products_list.append(p)
+
+
+class SmartPhone(Product):
+    def __init__(self, name, description, price, quantity, power: float, model, memory, colour):
+        super().__init__(name, description, price, quantity)
+        self.power = power
+        self.model = model
+        self.memory = memory
+        self.colour = colour
+
+    def __add__(self, other) -> float:
+        """ Метод для определения полной стоимости товаров на складе """
+        if type(self) is SmartPhone:
+            return (self.price * self.quantity) + (other.price * other.quantity)
+        else:
+            raise TypeError('Нельзя складывать товары разных типов')
+
+
+class Grass(Product):
+    def __init__(self, name, description, price, quantity, country, growth_time, colour):
+        super().__init__(name, description, price, quantity)
+        self.power = country
+        self.model = growth_time
+        self.colour = colour
+
+    def __add__(self, other) -> float:
+        """ Метод для определения полной стоимости товаров на складе """
+        if isinstance(other, Grass):
+            return (self.price * self.quantity) + (other.price * other.quantity)
+        else:
+            raise TypeError
