@@ -1,4 +1,5 @@
 import json
+from abc import ABC, abstractmethod
 
 
 class Category:
@@ -43,12 +44,12 @@ class Category:
     def get_products_list(self, product):
         """Геттер, который выводит список товаров в нужном формате"""
         product_list = []
-        for p in product:
+        for _ in product:
             product_list.append(f"Продукт, {self.__products['price']} руб. Остаток: {self.__products['quantity']} шт.")
         return product_list
 
     @staticmethod
-    def add_product_to_category(self, product):
+    def add_product_to_category(product):
         """Метод для приема на вход объекта товара и добавления его в список"""
         product_list = []
         for p in product['products']:
@@ -70,7 +71,8 @@ class Product:
         self.quantity = quantity
 
     def __repr__(self):
-        return f'Product(name={self.name}, description={self.description}, price={self.price}, quantity={self.quantity})'
+        return (f'Product(name={self.name}, description={self.description}, '
+                f'price={self.price}, quantity={self.quantity})')
 
     def __str__(self):
         return f'Название продукта: {self.name}, {self.price} руб. Остаток: {len(self)} шт.'
