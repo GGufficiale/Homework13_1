@@ -58,7 +58,19 @@ class Category:
         return product_list
 
 
-class Product:
+class Abstract(ABC):
+    @abstractmethod
+    def price(self):
+        pass
+
+    def discount(self):
+        pass
+
+    def quantity(self):
+        pass
+
+
+class Product(Abstract):
     name: str
     description: str
     price: float
