@@ -4,7 +4,6 @@ import json
 class Category:
     name: str
     description: str
-    products = []
     all_categories = 0
     all_unique_goods = 0
 
@@ -30,7 +29,7 @@ class Category:
         return iter(self.__products)
 
     @property
-    def get_products_list(self):
+    def products(self):
         return f'{self.__products}'
 
     @products.setter
@@ -41,7 +40,7 @@ class Category:
             raise TypeError
 
     @property
-    def get_products(self, product):
+    def get_products_list(self, product):
         """Геттер, который выводит список товаров в нужном формате"""
         product_list = []
         for p in product:
