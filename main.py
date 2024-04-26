@@ -60,27 +60,38 @@ class Category:
 
 class Abstract(ABC):
     @abstractmethod
+    def __add__(self, other):
+        pass
+
+    @abstractmethod
+    def __str__(self):
+        pass
+
+    @abstractmethod
     def price(self):
         pass
 
-    def discount(self):
-        pass
 
-    def quantity(self):
-        pass
+class MixinConsoleLog:
+    def __repr__(self):
+        return f"{self.__class__.__name__}({', '.join(map(str, self.__dict__.values()))})"
 
 
-class Product(Abstract):
+class Product(Abstract, MixinConsoleLog):
     name: str
     description: str
     price: float
     quantity: int
 
     def __init__(self, name, description, price, quantity):
+        super().__init__()
         self.name = name
         self.description = description
         self.price = float(price)
         self.quantity = quantity
+
+        if type(self) is Product:
+            print(MixinConsoleLog.__repr__(self))
 
     def __repr__(self):
         return (f'Product(name={self.name}, description={self.description}, '
@@ -147,13 +158,16 @@ def make_products_list():
             products_list.append(p)
 
 
-class SmartPhone(Product):
+class SmartPhone(Product, MixinConsoleLog):
     def __init__(self, name, description, price, quantity, power: float, model, memory, colour):
         super().__init__(name, description, price, quantity)
         self.power = power
         self.model = model
         self.memory = memory
         self.colour = colour
+
+        if type(self) is SmartPhone:
+            print(MixinConsoleLog.__repr__(self))
 
     def __add__(self, other) -> float:
         """ Метод для определения полной стоимости товаров на складе """
@@ -163,12 +177,15 @@ class SmartPhone(Product):
             raise TypeError('Нельзя складывать товары разных типов')
 
 
-class Grass(Product):
+class Grass(Product, MixinConsoleLog):
     def __init__(self, name, description, price, quantity, country, growth_time, colour):
         super().__init__(name, description, price, quantity)
         self.power = country
         self.model = growth_time
         self.colour = colour
+
+        if type(self) is Grass:
+            print(MixinConsoleLog.__repr__(self))
 
     def __add__(self, other) -> float:
         """ Метод для определения полной стоимости товаров на складе """
