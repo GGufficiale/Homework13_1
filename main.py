@@ -90,7 +90,7 @@ class Product(Abstract, MixinConsoleLog):
         self.price = float(price)
         self.quantity = quantity
 
-        if type(self) is Product:
+        if isinstance(self, self.__class__):
             print(MixinConsoleLog.__repr__(self))
 
     def __repr__(self):
@@ -166,9 +166,6 @@ class SmartPhone(Product, MixinConsoleLog):
         self.memory = memory
         self.colour = colour
 
-        if type(self) is SmartPhone:
-            print(MixinConsoleLog.__repr__(self))
-
     def __add__(self, other) -> float:
         """ Метод для определения полной стоимости товаров на складе """
         if type(self) is SmartPhone:
@@ -183,9 +180,6 @@ class Grass(Product, MixinConsoleLog):
         self.power = country
         self.model = growth_time
         self.colour = colour
-
-        if type(self) is Grass:
-            print(MixinConsoleLog.__repr__(self))
 
     def __add__(self, other) -> float:
         """ Метод для определения полной стоимости товаров на складе """
