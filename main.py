@@ -54,6 +54,9 @@ class Category:
         product_list = []
         for p in product['products']:
             product_list.append(Product(p['name'], p['description'], p['price'], p['quantity']))
+            if p['quantity'] == 0:
+                raise ValueError('Товар с нулевым количеством не может быть добавлен')
+            break
         Category(product['name'], product['description'], product_list)
         return product_list
 
