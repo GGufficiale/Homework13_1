@@ -60,6 +60,18 @@ class Category:
         Category(product['name'], product['description'], product_list)
         return product_list
 
+    def count_average(self):
+        """ Метод для подсчета средней цены товаров. 
+        С помощью исключений обработан случай, когда в категории нет товаров, 
+        и сумма всех товаров будет делиться на ноль"""
+        try:
+            cost = 0
+            for i in self.__products:
+                cost += i.price
+            return cost / len(self)
+        except ZeroDivisionError:
+            return 0
+
 
 class Abstract(ABC):
     @abstractmethod
